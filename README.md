@@ -62,7 +62,7 @@ This project aims to give Milan’s government officials an overview of the dist
 - **Entity Identification**: Key entities include **Listing**, **Neighborhood**, and **Host**.
 - **Relationships and Associated Cardinalities**: **Listing** has a one-to-many (1:m) relationship with **Host**. That is, a listing belongs to one and only one host, but a host can have one to many listings. Similarly, **Listing** has a one-to-many (1:m) relationship with **Neighborhood**. That is, a listing is located in one and only one neighborhood, but a neighborhood can have one to many listings.
 - **Variables of Interest**: The six variables of interest are *id, host_id, neighbourhood_cleansed, room_type, minimum_nights, and review_scores_rating*.
-- **Sensitive Data Protection**: Pseudonymization is used to replaced the column *host_id* with the column *pseudo_host_id* because the column *host_id* contains personal data that can be used to retrieve information about a data subject or in this case, the identity of a particular host.   
+- **Sensitive Data Protection**: Pseudonymization is used to replace the column *host_id* with the column *pseudo_host_id* because the column *host_id* contains personal data that can be used to retrieve information about a data subject or in this case, the identity of a particular host.   
 - **Normalization**: The original table containing the six relevant variables is already in the 1NF as all columns are single-valued. The table is also in the 2NF as there is no partial dependency. Moreover, the table is also in the 3NF since there is no transitive dependency. Nevertheless, I decide to separate this table into three tables, namely **Listing**, **Host**, and **Neighborhood** because the separation will help reduce redundancy (some listings are hosted by the same host or located in the same neighborhood) and make it easier for future maintenance and updates (if I need to modify information about hosts, listings, and neighborhoods, I can do so in each respective table without affecting unrelated data and in doing so, reducing data inconsistency). 
 - **The Final ERD**:
     ![Figure 1: Final ERD](images/erd_simple.png)
@@ -110,7 +110,7 @@ After executing the ETL pipeline with Apache Airflow, I verified successful task
 
 ## Connecting to the Database with pgAdmin
 
-After the ETL process, I accessed the populated PostgreSQL database inside_airbnb_milan using pgAdmin. The setup requires:
+After the ETL process, I accessed the populated PostgreSQL database `inside_airbnb_milan` using pgAdmin. The setup requires:
 - **Name**: `Docker PostgreSQL`
 - **Host name/address**: `localhost`
 - **Port**: `5433`
