@@ -1,0 +1,113 @@
+x-airflow-common: &airflow-common
+  build:
+    context: ./etl
+  environment:
+    - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    - AIRFLOW__CORE__DAGS_FOLDER=/usr/local/airflow/dags
+    - AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT=60
+    - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:${DB_PASSWORD}@db:5432/inside_airbnb_milan
+    - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
+    - AIRFLOW__CORE__LOAD_EXAMPLES=False
+    - AIRFLOW__CORE__LOGGING_LEVEL=INFO
+    - AIRFLOW__WEBSERVER__SECRET_KEY=${WEBSERVER_SECRET_KEY}
+    - DB_PASSWORD=${DB_PASSWORD}
+    - SQLALCHEMY_WARN_20=1
+  volumes:
+    - ./etl:/usr/local/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./output:/usr/local/airflow/files
+    - ./etl/requirements.txt:/requirements.txt
+  networks:
+    - app_network
+
+services:
+  db: 
+    image: postgres:13
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=inside_airbnb_milan
+      - POSTGRES_PORT=5432
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    networks:
+      - app_network
+
+  schema:
+    build:
+      context: ./postgres
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - app_network
+
+  airflow-init:
+    <<: *airflow-common
+    container_name: airflow_init
+    entrypoint: /bin/bash
+    command: >
+      -c "airflow db init && airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin"
+    depends_on:
+      db:
+        condition: service_healthy
+      schema:
+        condition: service_completed_successfully
+    networks:
+      - app_network
+
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: airflow_webserver
+    command: ["airflow", "webserver"]
+    ports:
+      - 8080:8080
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    networks:
+      - app_network
+
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: airflow_scheduler
+    command: ["airflow", "scheduler"]
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    networks:
+      - app_network
+
+  query:
+    build:
+      context: ./query
+    container_name: query
+    environment:
+      DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./output:/app/output
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  app_network:
+    driver: bridge
+
+
+
+
+
+

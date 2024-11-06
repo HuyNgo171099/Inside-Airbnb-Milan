@@ -1,0 +1,50 @@
+neighbourhood_name,neighbourhood_id,room_type,stay_period,stay_period_count,stay_period_count_per_neighbourhood_and_room_type,stay_period_proportion
+LORETO,1,Entire home/apt,long-term,12,702,1.70940
+LORETO,1,Entire home/apt,short-term,690,702,98.29060
+LORETO,1,Hotel room,short-term,6,6,100.00000
+LORETO,1,Private room,long-term,7,113,6.19469
+LORETO,1,Private room,short-term,106,113,93.80531
+LORETO,1,Shared room,short-term,13,13,100.00000
+NAVIGLI,5,Entire home/apt,short-term,700,721,97.08738
+NAVIGLI,5,Entire home/apt,long-term,21,721,2.91262
+NAVIGLI,5,Private room,long-term,1,73,1.36986
+NAVIGLI,5,Private room,short-term,72,73,98.63014
+NAVIGLI,5,Shared room,short-term,1,1,100.00000
+SARPI,38,Entire home/apt,long-term,10,799,1.25156
+SARPI,38,Entire home/apt,short-term,789,799,98.74844
+SARPI,38,Private room,short-term,74,76,97.36842
+SARPI,38,Private room,long-term,2,76,2.63158
+TICINESE,39,Entire home/apt,long-term,15,712,2.10674
+TICINESE,39,Entire home/apt,short-term,697,712,97.89326
+TICINESE,39,Private room,short-term,68,69,98.55072
+TICINESE,39,Private room,long-term,1,69,1.44928
+TICINESE,39,Shared room,short-term,2,3,66.66667
+TICINESE,39,Shared room,long-term,1,3,33.33333
+ISOLA,48,Entire home/apt,long-term,5,566,0.88339
+ISOLA,48,Entire home/apt,short-term,561,566,99.11661
+ISOLA,48,Private room,short-term,76,76,100.00000
+ISOLA,48,Shared room,short-term,4,4,100.00000
+BRERA,56,Entire home/apt,short-term,782,793,98.61286
+BRERA,56,Entire home/apt,long-term,11,793,1.38714
+BRERA,56,Private room,long-term,1,51,1.96078
+BRERA,56,Private room,short-term,50,51,98.03922
+XXII MARZO,57,Entire home/apt,long-term,9,504,1.78571
+XXII MARZO,57,Entire home/apt,short-term,495,504,98.21429
+XXII MARZO,57,Private room,short-term,48,59,81.35593
+XXII MARZO,57,Private room,long-term,11,59,18.64407
+CENTRALE,59,Entire home/apt,long-term,10,723,1.38313
+CENTRALE,59,Entire home/apt,short-term,713,723,98.61687
+CENTRALE,59,Private room,long-term,3,92,3.26087
+CENTRALE,59,Private room,short-term,89,92,96.73913
+CENTRALE,59,Shared room,short-term,8,8,100.00000
+DUOMO,61,Entire home/apt,long-term,7,1163,0.60189
+DUOMO,61,Entire home/apt,short-term,1156,1163,99.39811
+DUOMO,61,Hotel room,short-term,3,3,100.00000
+DUOMO,61,Private room,short-term,81,84,96.42857
+DUOMO,61,Private room,long-term,3,84,3.57143
+DUOMO,61,Shared room,short-term,4,4,100.00000
+BUENOS AIRES - VENEZIA,76,Entire home/apt,long-term,16,1388,1.15274
+BUENOS AIRES - VENEZIA,76,Entire home/apt,short-term,1372,1388,98.84726
+BUENOS AIRES - VENEZIA,76,Private room,short-term,178,194,91.75258
+BUENOS AIRES - VENEZIA,76,Private room,long-term,16,194,8.24742
+BUENOS AIRES - VENEZIA,76,Shared room,short-term,22,22,100.00000

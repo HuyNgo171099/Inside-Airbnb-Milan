@@ -1,0 +1,6 @@
+requests
+psycopg2-binary
+pandas==1.5.3
+numpy==1.23.5
+apache-airflow==2.5.1
+pyarrow<10.1.0,>=10.0.1

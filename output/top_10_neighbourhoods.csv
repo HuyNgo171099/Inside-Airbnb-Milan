@@ -1,0 +1,11 @@
+neighbourhood_name,neighbourhood_id,weighted_avg_listing_per_host_per_neighbourhood,weighted_avg_review_scores_rating_per_neighbourhood
+DUOMO,61,0.14972,0.28978
+BUENOS AIRES - VENEZIA,76,0.12318,0.37564
+CENTRALE,59,0.06855,0.19217
+BRERA,56,0.06692,0.19719
+SARPI,38,0.05874,0.20602
+LORETO,1,0.05734,0.19323
+NAVIGLI,5,0.05521,0.18753
+TICINESE,39,0.05398,0.18482
+ISOLA,48,0.04241,0.15206
+XXII MARZO,57,0.03758,0.13170
