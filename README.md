@@ -33,21 +33,25 @@ This project provides Milan's government officials with insights into the distri
 
    ```sh
    git clone https://github.com/HuyNgo171099/Inside-Airbnb-Milan-Pipeline
+
+2. **Navigate to the Project Directory**
+
+   ```sh
    cd Inside-Airbnb-Milan-Pipeline
 
-2. **Set Up Docker for PostgreSQL and Airflow Services**
+3. **Start PostgreSQL and Airflow Services**
 
    ```sh
-   docker-compose up --build db schema airflow-init airflow-webserver airflow-scheduler
+   docker-compose up --build -d db schema airflow-init airflow-webserver airflow-scheduler
 
-3. **Access the Airflow Webserver GUI**: Navigate to `localhost:8080` in your browser.
+3. **Access Airflow GUI**: Navigate to `localhost:8080` in your browser and run the DAG.
 
-4. **Set Up Docker for Query Service**
+4. **Start Query Service**
 
    ```sh
-   docker-compose up --build query
+   docker-compose up --build -d query
 
-5. **Set Up pgAdmin Connection**: Configure pgAdmin to connect to the PostgreSQL database on `localhost:5433`.
+5. **Start pgAdmin4**: Configure pgAdmin to connect to the PostgreSQL database on `localhost:5433`.
 
 ## Project Background
 
